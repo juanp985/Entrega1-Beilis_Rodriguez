@@ -59,7 +59,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'AppForms.urls'
+ROOT_URLCONF = 'Forms.urls'
 
 TEMPLATES = [
     {

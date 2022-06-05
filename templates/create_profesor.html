@@ -1,10 +1,10 @@
-{% extends "AppForms/home.html"%}
+{% extends 'home.html' %}
 {% block Formulario %}
 
 <h1> Seccion para agregar un nuevo profesor:</h1> <br>
 
 <form action ="" method="POST">
-    {% crf_token %}
+    {% csrf_token %}
     <table>
         {{profesor.as_table}}
     </table>
@@ -13,11 +13,11 @@
 </form>
 
 <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
     <div class="card-body">
         <h5 class="card-title">{{new_profesor.nombre}}</h5>
-        <p class="card-text">{{new_product.apellido}}</p>
-        <p class="card-text">{{new_product.email}}</p>
+        <h5 class="card-title">{{new_profesor.apellido}}</h5>
+        <h5 class="card-title">{{new_profesor.email}}</h5>
+        <h5 class="card-title">{{new_profesor.profesion}}</h5>
     </div>
 </div>
 
