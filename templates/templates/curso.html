@@ -1,0 +1,23 @@
+{% extends "AppForms/home.html"%}
+{% block Formulario %}
+
+<h1> Seccion para agregar un nuevo curso:</h1> <br>
+
+<form action ="" method="POST">
+    {% crf_token %}
+    <table>
+        {{curso.as_table}}
+    </table>
+    <input type = "submit", value = "Crear">    
+
+</form>
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">{{new_curso.nombre}}</h5>
+        <h5 class="card-title">{{new_curso.camada}}</h5>
+    </div>
+</div>
+
+{% endblock %}  

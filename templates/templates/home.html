@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #e3f2fd;">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/create_curso">Curso</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/create_estudiante">Estudiante</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/crete_profesor">Profesor</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">Admin</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action = "/search_alumno", method = "GET"> 
+          <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search" name = "search">
+          <button class="btn btn-sm btn-outline-secondary" type="submit">Buscar</button>
+        </form>
+      </nav>
+      <br>
+    <div class="container-fluid">
+
+      {% block Formulario %}
+      {% endblock %}
+
+  </div>
+</body>
+</html>
