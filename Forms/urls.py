@@ -6,4 +6,5 @@ urlpatterns = [
     path('home', home),
     path('crear/', include('AppForms.urls')),
     path('admin/', admin.site.urls),
+    
 ]

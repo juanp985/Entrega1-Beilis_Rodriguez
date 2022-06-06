@@ -1,19 +1,17 @@
-{% extends "AppForms/home.html"%}
+{% extends "home.html"%}
 {% block Formulario %}
 
-<h1>Aca va el contenido de buscar estudiantes</h1>
+<h1>Aca va el contenido de buscar alumnos</h1>
 <div class="d-flex" style="margin-top:5rem; margin-left:7rem">
-    {% for product in products %}
+    {% for estudiante in estudiantes %}
 
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">{{new.name}}</h5>
-            <h5 class="card-title">{{product.description}}</h5>
-            <h5 class="card-title">{{product.price}}</h5>
-        </div>
+    <div class="card-body">
+        <h5 class="card-title">{{estudiante.legajo}}</h5>
+        <h5 class="card-title">{{estudiante.nombre}}</h5>
+        <h5 class="card-title">{{estudiante.apellido}}</h5>
+        <h5 class="card-title">{{estudiante.email}}</h5>
     </div>
-
+    
     {% endfor %}
 
 {% endblock %}

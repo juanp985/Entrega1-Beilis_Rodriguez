@@ -3,7 +3,7 @@ from AppForms.models import Curso, Profesor, Estudiante
 from AppForms.forms import Curso_form, Profesor_form, Estudiante_form
 
 
-def create_cursos(request):
+def create_curso(request):
       
       if request.method == 'GET':
             curso = Curso_form ()
@@ -11,7 +11,7 @@ def create_cursos(request):
             return render(request,'create_curso.html', context=context)
       else:
             curso = Curso_form(request.POST)
-            if curso.is_valid:
+            if curso.is_valid():
                   new_curso = Curso.objects.create(
                         nombre = curso.cleaned_data['nombre'],
                         camada = curso.cleaned_data['camada']
@@ -28,7 +28,7 @@ def create_profesor(request):
             return render(request,'create_profesor.html', context=context)
       else:
             profesor = Profesor_form(request.POST)
-            if profesor.is_valid:
+            if profesor.is_valid():
                   new_profesor = Profesor.objects.create(
                         nombre = profesor.cleaned_data['nombre'],
                         apellido = profesor.cleaned_data['apellido'],
@@ -47,7 +47,7 @@ def create_estudiante(request):
             return render(request,'create_estudiante.html', context=context)
       else:
             estudiante = Estudiante_form(request.POST)
-            if estudiante.is_valid:
+            if estudiante.is_valid():
                   new_estudiante = Estudiante.objects.create(
                         legajo = estudiante.cleaned_data['legajo'],
                         nombre = estudiante.cleaned_data['nombre'],
@@ -55,11 +55,10 @@ def create_estudiante(request):
                         email = estudiante.cleaned_data['email']
                   )
             context = {'new_estudiante':new_estudiante}
-            return render(request,'create_profesor.html', context=context)                   
+            return render(request,'create_estudiante.html', context=context)                   
 
-def cd (request):
-      
-      print (request.GET)
-      estudiante = Estudiante.objects.filter(nombre = request.GET['nombre'])
-      context = {'estudiante': estudiante}
-      return render (request,'search_alumno.html',context=context)
+def search_alumno(request):
+    print(request.GET)
+    estudiantes = Estudiante.objects.filter(nombre = request.GET['search'])
+    context = {'estudiantes':estudiantes}
+    return render(request, 'search_alumno.html', context = context)
