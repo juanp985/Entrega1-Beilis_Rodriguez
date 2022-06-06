@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>Proyecto Final</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -35,27 +35,16 @@
 
   {% block Formulario %}
 
-  <h5>Listado de todos los profesores: </h5><br> 
-    {% for profesor in profesores %}
-        <h5>Nombre: {{profesor.nombre}}</h5> 
-        <h5>Apellido: {{profesor.apellido}}</h5> 
-        <h5>Email: {{profesor.email}}</h5> 
-        <h5>Profesion: {{profesor.email}}</h5> 
-    {% endfor %} 
-
-    <br><h5>Listado de todos los estudiantes: </h5><br>
-    {% for estudiante in estudiantes %}
-        <h5>Legajo: {{estudiante.legajo}}</h5> 
-        <h5>Nombre: {{estudiante.nombre}}</h5> 
-        <h5>Apellido: {{estudiante.apellido}}</h5> 
-        <h5>Email: {{estudiante.email}}</h5> 
-    {% endfor %} 
-
-    <br><h5>Listado de todos los cursos: </h5><br>
-    {% for curso in cursos %}
-        <h5>Nombre: {{curso.nombre}}</h5> 
-        <h5>Camada: {{curso.camada}}</h5> 
-    {% endfor %} 
+  <h6>Home:</h6>
+    <h7>- Menu con que contiene todas las opciones disponibles.</h7>
+  <h6>Curso:</h6>
+    <h7>- En esta seccion se crean los cursos nuevos.</h7><br>
+  <h6>Estudiante:</h6>
+    <h7>- En esta seccion se crean los estudiantes nuevos.</h7><br>
+  <h6>Profesores:</h6>
+    <h7>- En esta seccion se crean los profesores nuevos.</h7><br>
+  <h6>Admin:</h6>
+    <h7>- Admin de Django, en este panel se pueden agregar familiares o borrarlos de la base de datos.</h7>
 
   {% endblock %}
 

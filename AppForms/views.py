@@ -59,7 +59,7 @@ def create_estudiante(request):
 
 def search_alumno(request):
     print(request.GET)
-    estudiantes = Estudiante.objects.filter(nombre = request.GET['search'])
+    estudiantes = Estudiante.objects.filter(nombre__contains = request.GET['search'])
     context = {'estudiantes':estudiantes}
     return render(request, 'search_alumno.html', context = context)
    
