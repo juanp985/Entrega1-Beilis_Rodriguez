@@ -1,13 +1,13 @@
 {% extends 'home.html' %}
 {% block Formulario %}
 
-    <h1> Seccion para agregar un nuevo curso</h1> <br>
+    <h3> Seccion para agregar un nuevo estudiante</h3> <br>
 
-    {% if profesor %}
+    {% if profesores %}
         <form action ="" method="POST">
             {% csrf_token %}
             <table>
-                {{profesor.as_table}}
+                {{profesores.as_table}}
             </table>
         <input type = "submit", value = "Crear">    
 
@@ -16,9 +16,9 @@
                 <h5 class="card-title">Nombre: {{new_profesor.nombre}}</h5>
                 <h5 class="card-title">Apellido: {{new_profesor.apellido}}</h5>
                 <h5 class="card-title">Email: {{new_profesor.email}}</h5>
-                <h5 class="card-title">Profesion: {{new_profesor.profesion}}</h5><br>
-                <h5> El profesor se ha creado con exito! </h5>
+                <h5 class="card-title">Legajo: {{new_profesor.profesion}}</h5><br>
+                <h5> El estudiante se ha creado con exito! </h5>
             </div>
     {% endif %}
 
-{% endblock %}  
+{% endblock %}    

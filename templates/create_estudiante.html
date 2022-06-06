@@ -1,13 +1,13 @@
 {% extends 'home.html' %}
 {% block Formulario %}
 
-    <h1> Seccion para agregar un nuevo curso</h1> <br>
+    <h3> Seccion para agregar un nuevo estudiante</h3> <br>
 
-    {% if estudiante %}
+    {% if estudiantes %}
         <form action ="" method="POST">
             {% csrf_token %}
             <table>
-                {{estudiante.as_table}}
+                {{estudiantes.as_table}}
             </table>
         <input type = "submit", value = "Crear">    
 

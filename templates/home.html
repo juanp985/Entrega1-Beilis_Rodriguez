@@ -33,8 +33,31 @@
       <br>
     <div class="container-fluid">
 
-      {% block Formulario %}
-      {% endblock %}
+  {% block Formulario %}
+
+  <h5>Listado de todos los profesores: </h5><br> 
+    {% for profesor in profesores %}
+        <h5>Nombre: {{profesor.nombre}}</h5> 
+        <h5>Apellido: {{profesor.apellido}}</h5> 
+        <h5>Email: {{profesor.email}}</h5> 
+        <h5>Profesion: {{profesor.email}}</h5> 
+    {% endfor %} 
+
+    <br><h5>Listado de todos los estudiantes: </h5><br>
+    {% for estudiante in estudiantes %}
+        <h5>Legajo: {{estudiante.legajo}}</h5> 
+        <h5>Nombre: {{estudiante.nombre}}</h5> 
+        <h5>Apellido: {{estudiante.apellido}}</h5> 
+        <h5>Email: {{estudiante.email}}</h5> 
+    {% endfor %} 
+
+    <br><h5>Listado de todos los cursos: </h5><br>
+    {% for curso in cursos %}
+        <h5>Nombre: {{curso.nombre}}</h5> 
+        <h5>Camada: {{curso.camada}}</h5> 
+    {% endfor %} 
+
+  {% endblock %}
 
   </div>
 </body>
