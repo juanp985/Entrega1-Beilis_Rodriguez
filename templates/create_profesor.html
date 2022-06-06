@@ -1,22 +1,24 @@
 {% extends 'home.html' %}
 {% block Formulario %}
 
-<h1> Seccion para agregar un nuevo profesor</h1> <br>
+    <h1> Seccion para agregar un nuevo curso</h1> <br>
 
-<form action ="" method="POST">
-    {% csrf_token %}
-    <table>
-        {{profesor.as_table}}
-    </table>
-    <input type = "submit", value = "Crear">    
+    {% if profesor %}
+        <form action ="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{profesor.as_table}}
+            </table>
+        <input type = "submit", value = "Crear">    
 
-</form>
-
-    <div class="card-body">
-        <h5 class="card-title">{{new_profesor.nombre}}</h5>
-        <h5 class="card-title">{{new_profesor.apellido}}</h5>
-        <h5 class="card-title">{{new_profesor.email}}</h5>
-        <h5 class="card-title">{{new_profesor.profesion}}</h5>
-    </div>
+    {% elif new_profesor %}
+            <div class="card-body">
+                <h5 class="card-title">Nombre: {{new_profesor.nombre}}</h5>
+                <h5 class="card-title">Apellido: {{new_profesor.apellido}}</h5>
+                <h5 class="card-title">Email: {{new_profesor.email}}</h5>
+                <h5 class="card-title">Profesion: {{new_profesor.profesion}}</h5><br>
+                <h5> El profesor se ha creado con exito! </h5>
+            </div>
+    {% endif %}
 
 {% endblock %}  
