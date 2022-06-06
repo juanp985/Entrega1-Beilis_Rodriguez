@@ -15,7 +15,9 @@ def create_curso(request):
                         nombre = cursos.cleaned_data['nombre'],
                         camada = cursos.cleaned_data['camada'],
                   )
-            context = {'new_curso':new_curso}
+                  context = {'new_curso':new_curso}
+            else:
+                  context = {'errors': cursos.errors}
             return render(request,'create_curso.html', context = context)
 
 
@@ -34,7 +36,9 @@ def create_profesor(request):
                         email = profesores.cleaned_data['email'],
                         profesion = profesores.cleaned_data['profesion'],
                   )
-            context = {'new_profesor':new_profesor}
+                  context = {'new_profesor':new_profesor}
+            else:
+                  context = {'errors': profesores.errors}
             return render(request,'create_profesor.html', context=context)  
 
 
@@ -53,7 +57,9 @@ def create_estudiante(request):
                         apellido = estudiantes.cleaned_data['apellido'],
                         email = estudiantes.cleaned_data['email'],
                   )
-            context = {'new_estudiante':new_estudiante}
+                  context = {'new_estudiante':new_estudiante}
+            else:
+                  context = {'errors': estudiantes.errors}
             return render(request,'create_estudiante.html', context=context)                   
 
 def search_alumno(request):
@@ -61,6 +67,7 @@ def search_alumno(request):
     print(request.GET)
     nombre_busqueda = request.GET['search']
     estudiantes = Estudiante.objects.filter(nombre__contains = nombre_busqueda)
+
     if estudiantes.exists():
       context = {'estudiantes':estudiantes}
     else:
