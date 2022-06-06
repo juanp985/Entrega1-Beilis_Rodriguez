@@ -1,4 +1,3 @@
-from sqlite3 import Timestamp
 from django.shortcuts import render
 from AppForms.models import Curso, Profesor, Estudiante
 from AppForms.forms import Curso_form, Profesor_form, Estudiante_form
@@ -58,9 +57,13 @@ def create_estudiante(request):
             return render(request,'create_estudiante.html', context=context)                   
 
 def search_alumno(request):
-      
+
     print(request.GET)
-    estudiantes = Estudiante.objects.filter(nombre__contains = request.GET['search'])
-    context = {'estudiantes':estudiantes}
+    nombre_busqueda = request.GET['search']
+    estudiantes = Estudiante.objects.filter(nombre__contains = nombre_busqueda)
+    if estudiantes.exists():
+      context = {'estudiantes':estudiantes}
+    else:
+      context = {'errors':f'El estudiante con el siguiente nombre no se encuentra creado: {nombre_busqueda}'}
     return render(request, 'search_alumno.html', context = context)
    
