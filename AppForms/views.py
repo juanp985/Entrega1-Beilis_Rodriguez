@@ -65,12 +65,15 @@ def create_estudiante(request):
 def search_alumno(request):
 
     print(request.GET)
+    
     nombre_busqueda = request.GET['search']
-    estudiantes = Estudiante.objects.filter(nombre__contains = nombre_busqueda)
-
-    if estudiantes.exists():
-      context = {'estudiantes':estudiantes}
+    if nombre_busqueda:
+      estudiantes = Estudiante.objects.filter(nombre__contains = nombre_busqueda)
+      if estudiantes.exists():
+            context = {'estudiantes':estudiantes}
+      else:
+            context = {'errors':f'El estudiante con el siguiente nombre no se encuentra creado: {nombre_busqueda}'}
+      return render(request, 'search_alumno.html', context = context)
     else:
-      context = {'errors':f'El estudiante con el siguiente nombre no se encuentra creado: {nombre_busqueda}'}
-    return render(request, 'search_alumno.html', context = context)
-   
+      context = {'errors':'No hay escrito nada en la barra de busqueda'}
+      return render(request, 'search_alumno.html', context = context)
