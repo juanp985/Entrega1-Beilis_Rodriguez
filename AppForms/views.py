@@ -75,5 +75,5 @@ def search_alumno(request):
             context = {'errors':f'El estudiante con el siguiente nombre no se encuentra creado: {nombre_busqueda}'}
       return render(request, 'search_alumno.html', context = context)
     else:
-      context = {'errors':'No hay escrito nada en la barra de busqueda'}
+      context = {'errors':'No se ha escrito nada en la barra de busqueda.'}
       return render(request, 'search_alumno.html', context = context)
