@@ -13,7 +13,7 @@ def create_curso(request):
             if cursos.is_valid():
                   new_curso = Curso.objects.create(
                         nombre = cursos.cleaned_data['nombre'],
-                        camada = cursos.cleaned_data['camada'],
+                        comision = cursos.cleaned_data['comision'],
                   )
                   context = {'new_curso':new_curso}
             else:
