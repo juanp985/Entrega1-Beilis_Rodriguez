@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+    Editar cursos
+{% endblock %}
+
+{% block Formulario %}
+
+<h3>Listado de todos los cursos</h3> <br>
+
+    {% for estudiante in object_list %}
+
+    <div class="card" style="margin-right:40rem;margin-top:2rem">
+        <div class="card-body">
+            <p class="card-text">Legajo: {{legajo.legajo}}</p>
+            <p class="card-text">Nombre: {{estudiante.nombre}}</p>
+            <p class="card-text">Apellido: {{estudiante.apellido}}</p>
+            <p class="card-text">Email: {{estudiante.email}}</p>
+            <a href="/appforms/curso/update_estudiante/{{estudiante.id}}/" class="btn btn-primary">Editar</a>
+            <a href="/appforms/curso/delete_estudiante/{{estudiante.id}}/" class="btn btn-danger">Eliminar</a>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}

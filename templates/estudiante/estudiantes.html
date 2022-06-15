@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+    Listar estudiante
+{% endblock %}
+
+{% block Formulario %}
+
+<h3>Listado de todos los estudiante</h3> <br>
+
+{{message}}
+
+    {% for estudiante in object_list %}
+
+    <div class="card" style="margin-right:40rem;margin-top:2rem">
+        <div class="card-body">
+            <p class="card-text">Legajo: {{estudiante.legajo}}</p>
+            <p class="card-text">Nombre: {{estudiante.nombre}}</p>
+            <p class="card-text">Apellido: {{estudiante.apellido}}</p>
+            <p class="card-text">Email: {{estudiante.email}}</p>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}

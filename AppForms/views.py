@@ -1,13 +1,19 @@
 from django.shortcuts import render
+from django.urls import reverse
 from AppForms.models import Curso, Profesor, Estudiante
 from AppForms.forms import Curso_form, Profesor_form, Estudiante_form
+from django.views.generic import ListView, DeleteView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
+## Cursos ##
+@login_required
 def create_curso(request):
       
       if request.method == 'GET':
             cursos = Curso_form ()
             context = {'cursos':cursos}
-            return render(request,'create_curso.html', context=context)
+            return render(request,'curso/create_curso.html', context=context)
       else:
             cursos = Curso_form(request.POST)
             if cursos.is_valid():
@@ -18,15 +24,39 @@ def create_curso(request):
                   context = {'new_curso':new_curso}
             else:
                   context = {'errors': cursos.errors}
-            return render(request,'create_curso.html', context = context)
+            return render(request,'curso/create_curso.html', context = context)
 
+class Cursos(LoginRequiredMixin, ListView):
+    model = Curso
+    template_name= 'curso/cursos.html'
 
+class Detail_curso(LoginRequiredMixin, ListView):
+    model = Curso
+    template_name= 'curso/detail_curso.html'
+
+class Delete_curso(LoginRequiredMixin, DeleteView):
+    model = Curso
+    template_name= 'curso/delete_curso.html'
+
+    def get_success_url(self):
+        return reverse('detail_curso')
+
+class Update_curso(LoginRequiredMixin, UpdateView):
+    model = Curso
+    template_name= 'curso/update_curso.html'
+    fields = '__all__'
+    
+    def get_success_url(self):
+      return reverse('detail_curso')
+
+## Profesores ##
+@login_required
 def create_profesor(request):
       
       if request.method == 'GET':
             profesores = Profesor_form ()
             context = {'profesores':profesores}
-            return render(request,'create_profesor.html', context=context)
+            return render(request,'profesor/create_profesor.html', context=context)
       else:
             profesores = Profesor_form(request.POST)
             if profesores.is_valid():
@@ -39,15 +69,40 @@ def create_profesor(request):
                   context = {'new_profesor':new_profesor}
             else:
                   context = {'errors': profesores.errors}
-            return render(request,'create_profesor.html', context=context)  
+            return render(request,'profesor/create_profesor.html', context=context)  
 
 
+class Profesores(LoginRequiredMixin, ListView):
+    model = Profesor
+    template_name= 'profesor/profesores.html'
+
+class Detail_profesor(LoginRequiredMixin, ListView):
+    model = Profesor
+    template_name= 'profesor/detail_profesor.html'
+
+class Delete_profesor(LoginRequiredMixin, DeleteView):
+    model = Profesor
+    template_name= 'profesor/delete_profesor.html'
+
+    def get_success_url(self):
+        return reverse('detail_profesor')
+
+class Update_profesor(LoginRequiredMixin, UpdateView):
+    model = Profesor
+    template_name= 'profesor/update_profesor.html'
+    fields = '__all__'
+    
+    def get_success_url(self):
+      return reverse('detail_profesor')
+
+## Estudiantes ##
+@login_required
 def create_estudiante(request):
       
       if request.method == 'GET':
             estudiantes = Estudiante_form ()
             context = {'estudiantes':estudiantes}
-            return render(request,'create_estudiante.html', context=context)
+            return render(request,'estudiante/create_estudiante.html', context=context)
       else:
             estudiantes = Estudiante_form(request.POST)
             if estudiantes.is_valid():
@@ -60,9 +115,33 @@ def create_estudiante(request):
                   context = {'new_estudiante':new_estudiante}
             else:
                   context = {'errors': estudiantes.errors}
-            return render(request,'create_estudiante.html', context=context)                   
+            return render(request,'estudiante/create_estudiante.html', context=context)                   
 
-def search_alumno(request):
+class Estudiantes(LoginRequiredMixin, ListView):
+    model = Estudiante
+    template_name= 'estudiante/estudiantes.html'
+
+class Detail_estudiante(LoginRequiredMixin, ListView):
+    model = Estudiante
+    template_name= 'estudiante/detail_estudiante.html'
+
+class Delete_estudiante(LoginRequiredMixin, DeleteView):
+    model = Estudiante
+    template_name= 'estudiante/delete_estudiante.html'
+
+    def get_success_url(self):
+        return reverse('detail_estudiante')
+
+class Update_estudiante(LoginRequiredMixin, UpdateView):
+    model = Estudiante
+    template_name= 'estudiante/update_estudiante.html'
+    fields = '__all__'
+    
+    def get_success_url(self):
+      return reverse('detail_estudiante')
+
+@login_required
+def search_estudiante(request):
 
     print(request.GET)
     
@@ -73,7 +152,7 @@ def search_alumno(request):
             context = {'estudiantes':estudiantes}
       else:
             context = {'errors':f'El estudiante con el siguiente nombre no se encuentra creado: {nombre_busqueda}'}
-      return render(request, 'search_alumno.html', context = context)
+      return render(request, 'estudiante/search_estudiante.html', context = context)
     else:
       context = {'errors':'No se ha escrito nada en la barra de busqueda.'}
-      return render(request, 'search_alumno.html', context = context)
+      return render(request, 'estudiante/search_estudiante.html', context = context)

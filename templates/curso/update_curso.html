@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+    Actualizar campos cursos
+{% endblock %}
+
+{% block Formulario %}
+
+    {% if curso %}
+        <h3>Complete los campos a actualizar</h3>
+
+        <form action="" method="POST" style="margin-right:40rem;margin-top:2rem">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+            <input type="submit" , value="Enviar">
+        </form>
+    {% endif %}
+
+{% endblock %}

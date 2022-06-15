@@ -15,4 +15,3 @@ class Profesor_form (forms.ModelForm):
     class Meta:
         model = Profesor
         fields = '__all__'
-

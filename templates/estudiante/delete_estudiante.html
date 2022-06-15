@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+    Borrar estudiante
+{% endblock %}
+
+{% block Formulario %}
+
+    <h3 style="color: red">Estas por eliminar el estudiante {{estudiante.nombre}}, estas seguro?</h3>
+
+    <form method = "POST">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit">Eliminar</button>
+    </form>
+
+
+{% endblock %}

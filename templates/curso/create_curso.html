@@ -1,7 +1,15 @@
-{% extends 'home.html' %}
+{% extends 'index.html' %}
+
+{% block titulo %}
+Crear curso
+{% endblock %}
+
+
 {% block Formulario %}
 
-    <h3> Seccion para agregar un nuevo curso</h3> <br>
+<h3>Seccion para agregar un nuevo curso</h3> <br>
+
+{{message}}
 
     {% if cursos %}
         <form action ="" method="POST">

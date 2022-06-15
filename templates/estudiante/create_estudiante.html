@@ -1,7 +1,14 @@
-{% extends 'home.html' %}
+{% extends 'index.html' %}
+
+{% block titulo %}
+    Crear estudiante
+{% endblock %}
+
 {% block Formulario %}
 
-    <h3> Seccion para agregar un nuevo estudiante</h3> <br>
+<h3>Seccion para agregar un nuevo estudiante</h3> <br>
+
+{{message}}
 
     {% if estudiantes %}
         <form action ="" method="POST">
