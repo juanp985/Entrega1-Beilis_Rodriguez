@@ -2,13 +2,14 @@ from Forms.forms import User_registration_form
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def buscar(request):
     return render(request, 'search_estudiante.html')
 
 def login_view(request):
-    
+
     if request.method == 'POST':
         form = AuthenticationForm(request, data = request.POST)
 
@@ -58,6 +59,7 @@ def register_view(request):
         context = {'form':form}
         return render(request, 'auth/register.html', context =context)
 
+@login_required
 def logout_view(request):
     logout(request)
     return render(request, 'home.html')

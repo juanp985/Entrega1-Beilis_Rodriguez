@@ -1,27 +1,27 @@
 {% extends 'index.html' %}
 
 {% block titulo %}
-    Listar cursos
+    Listar profesores
 {% endblock %}
 
 {% block Formulario %}
 
-<h3>Listado de todos los cursos</h3> <br>
+<h3>Listado de todos los profesores</h3> <br>
 
-{{message}}
-
-    {% for profesor in object_list %}
-
-    <div class="card" style="margin-right:40rem;margin-top:2rem">
-        <div class="card-body">
-            <p class="card-text">Nombre: {{profesor.nombre}}</p>
-            <p class="card-text">Apellido: {{profesor.apellido}}</p>
-            <p class="card-text">Email: {{profesor.email}}</p>
-            <p class="card-text">Profesion: {{profesor.profesion}}</p>
+    {% if object_list %}
+        {% for profesor in object_list %}
+            <div class="card" style="margin-right:40rem;margin-top:2rem">
+                <div class="card-body">
+                    <p class="card-text">Legajo: {{profesor.legajo}}</p>    
+                    <p class="card-text">Apellido: {{profesor.apellido}}</p>
+                    <a href="/appforms/profesor/detail_profesor/{{profesor.id}}/" class="btn btn-primary">Detalle</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    {% else %}
+        <h5>No se ha agregado ningun profesor</h5>
+    {% endif %}
         </div>
-    </div>
-
-    {% endfor %}
-</div>
 
 {% endblock %}

@@ -8,16 +8,19 @@
 
 <h3>Listado de todos los cursos</h3> <br>
 
-    {% for curso in object_list %}
-
-    <div class="card" style="margin-right:40rem;margin-top:2rem">
-        <div class="card-body">
-            <p class="card-text">Nombre: {{curso.nombre}}</p>
-            <p class="card-text">Comision: {{curso.comision}}</p>
-        </div>
-    </div>
-
-    {% endfor %}
-</div>
+    {% if object_list %}
+        {% for curso in object_list %}
+            <div class="card" style="margin-right:40rem;margin-top:2rem">
+                <div class="card-body">
+                    <p class="card-text">Comision: {{curso.comision}}</p>
+                    <a href="/appforms/curso/detail_curso/{{curso.id}}/" class="btn btn-primary">Detalle</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <h5>No se ha agregado ningun curso</h5>
+        {% endif %}
+            </div>
 
 {% endblock %}

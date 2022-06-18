@@ -1,16 +1,16 @@
 {% extends 'index.html' %}
 
 {% block titulo %}
-    Editar cursos
+    Editar profesores
 {% endblock %}
 
 {% block Formulario %}
 
-<h3>Detalle del profesor</h3> <br>
+<h3>Listado de profesores a editar</h3> <br>
 
-        {% if profesor.imagen %}
-            <img src="{{profesor.imagen.url}}" class="card-img-top" >
-        {% endif %}
+{% if object_list %}
+    {% for profesor in object_list %}
+
     <div class="card" style="margin-right:40rem;margin-top:2rem">
         <div class="card-body">
             <p class="card-text">Legajo: {{profesor.legajo}}</p>
@@ -18,7 +18,19 @@
             <p class="card-text">Apellido: {{profesor.apellido}}</p>
             <p class="card-text">Email: {{profesor.email}}</p>
             <p class="card-text">Profesion: {{profesor.profesion}}</p>
+            <a href="/appforms/profesor/update_profesor/{{profesor.id}}/" class="btn btn-primary">Editar</a>
+            <a href="/appforms/profesor/delete_profesor/{{profesor.id}}/" class="btn btn-danger">Eliminar</a>
         </div>
     </div>
+    {% endfor %}
+
+{% else %}
+
+    <h5>No se ha agregado ningun profesor</h5>
+
+{% endif %}
 
 {% endblock %}
+
+
+

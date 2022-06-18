@@ -8,7 +8,7 @@ class ProductsAdmin(admin.ModelAdmin):
 
 @admin.register(Profesor)
 class ProfesorAdmin(admin.ModelAdmin):
-    list_display = ['nombre','apellido', 'email', 'profesion']
+    list_display = ['legajo','nombre','apellido', 'email', 'profesion']
 
 @admin.register(Curso)
 class CursoAdmin(admin.ModelAdmin):

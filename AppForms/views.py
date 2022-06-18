@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from AppForms.models import Curso, Profesor, Estudiante
 from AppForms.forms import Curso_form, Profesor_form, Estudiante_form
-from django.views.generic import ListView, DeleteView, UpdateView
+from django.views.generic import ListView, DeleteView, UpdateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
@@ -20,6 +20,7 @@ def create_curso(request):
                   new_curso = Curso.objects.create(
                         nombre = cursos.cleaned_data['nombre'],
                         comision = cursos.cleaned_data['comision'],
+                        imagen = cursos.cleaned_data['imagen'],
                   )
                   context = {'new_curso':new_curso}
             else:
@@ -34,12 +35,16 @@ class Detail_curso(LoginRequiredMixin, ListView):
     model = Curso
     template_name= 'curso/detail_curso.html'
 
+class Edit_curso(LoginRequiredMixin, ListView):
+    model = Curso
+    template_name= 'curso/edit_curso.html'
+
 class Delete_curso(LoginRequiredMixin, DeleteView):
     model = Curso
     template_name= 'curso/delete_curso.html'
 
     def get_success_url(self):
-        return reverse('detail_curso')
+        return reverse('cursos')
 
 class Update_curso(LoginRequiredMixin, UpdateView):
     model = Curso
@@ -47,7 +52,7 @@ class Update_curso(LoginRequiredMixin, UpdateView):
     fields = '__all__'
     
     def get_success_url(self):
-      return reverse('detail_curso')
+      return reverse('cursos')
 
 ## Profesores ##
 @login_required
@@ -61,10 +66,12 @@ def create_profesor(request):
             profesores = Profesor_form(request.POST)
             if profesores.is_valid():
                   new_profesor = Profesor.objects.create(
+                        legajo = profesores.cleaned_data['legajo'],
                         nombre = profesores.cleaned_data['nombre'],
                         apellido = profesores.cleaned_data['apellido'],
                         email = profesores.cleaned_data['email'],
                         profesion = profesores.cleaned_data['profesion'],
+                        imagen = profesores.cleaned_data['imagen'],
                   )
                   context = {'new_profesor':new_profesor}
             else:
@@ -76,16 +83,20 @@ class Profesores(LoginRequiredMixin, ListView):
     model = Profesor
     template_name= 'profesor/profesores.html'
 
-class Detail_profesor(LoginRequiredMixin, ListView):
+class Detail_profesor(LoginRequiredMixin, DetailView):
     model = Profesor
     template_name= 'profesor/detail_profesor.html'
+
+class Edit_profesor(LoginRequiredMixin, ListView):
+    model = Profesor
+    template_name= 'profesor/edit_profesor.html'
 
 class Delete_profesor(LoginRequiredMixin, DeleteView):
     model = Profesor
     template_name= 'profesor/delete_profesor.html'
 
     def get_success_url(self):
-        return reverse('detail_profesor')
+        return reverse('profesores')
 
 class Update_profesor(LoginRequiredMixin, UpdateView):
     model = Profesor
@@ -93,7 +104,7 @@ class Update_profesor(LoginRequiredMixin, UpdateView):
     fields = '__all__'
     
     def get_success_url(self):
-      return reverse('detail_profesor')
+      return reverse('profesores')
 
 ## Estudiantes ##
 @login_required
@@ -111,6 +122,7 @@ def create_estudiante(request):
                         nombre = estudiantes.cleaned_data['nombre'],
                         apellido = estudiantes.cleaned_data['apellido'],
                         email = estudiantes.cleaned_data['email'],
+                        imagen = estudiantes.cleaned_data['imagen'],
                   )
                   context = {'new_estudiante':new_estudiante}
             else:
@@ -121,16 +133,20 @@ class Estudiantes(LoginRequiredMixin, ListView):
     model = Estudiante
     template_name= 'estudiante/estudiantes.html'
 
-class Detail_estudiante(LoginRequiredMixin, ListView):
+class Detail_estudiante(LoginRequiredMixin, DetailView):
     model = Estudiante
     template_name= 'estudiante/detail_estudiante.html'
+
+class Edit_estudiante(LoginRequiredMixin, ListView):
+    model = Estudiante
+    template_name= 'estudiante/edit_estudiante.html'
 
 class Delete_estudiante(LoginRequiredMixin, DeleteView):
     model = Estudiante
     template_name= 'estudiante/delete_estudiante.html'
 
     def get_success_url(self):
-        return reverse('detail_estudiante')
+        return reverse('estudiantes')
 
 class Update_estudiante(LoginRequiredMixin, UpdateView):
     model = Estudiante
@@ -138,7 +154,7 @@ class Update_estudiante(LoginRequiredMixin, UpdateView):
     fields = '__all__'
     
     def get_success_url(self):
-      return reverse('detail_estudiante')
+      return reverse('estudiantes')
 
 @login_required
 def search_estudiante(request):

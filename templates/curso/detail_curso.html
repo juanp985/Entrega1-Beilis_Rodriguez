@@ -1,25 +1,21 @@
 {% extends 'index.html' %}
 
 {% block titulo %}
-    Editar cursos
+    Editar curso
 {% endblock %}
 
 {% block Formulario %}
 
-<h3>Listado de todos los cursos</h3> <br>
+<h3>Detalle del curso</h3> <br>
 
-    {% for curso in object_list %}
-
+    {% if curso.imagen %}
+        <img src="{{curso.imagen.url}}" class="card-img-top" style="width:10%">
+    {% endif %}
     <div class="card" style="margin-right:40rem;margin-top:2rem">
         <div class="card-body">
-            <p class="card-text">Nombre: {{curso.nombre}}</p>
             <p class="card-text">Comision: {{curso.comision}}</p>
-            <a href="/appforms/curso/update_curso/{{curso.id}}/" class="btn btn-primary">Editar</a>
-            <a href="/appforms/curso/delete_curso/{{curso.id}}/" class="btn btn-danger">Eliminar</a>
+            <p class="card-text">Nombre: {{curso.nombre}}</p>
         </div>
     </div>
-
-    {% endfor %}
-</div>
 
 {% endblock %}

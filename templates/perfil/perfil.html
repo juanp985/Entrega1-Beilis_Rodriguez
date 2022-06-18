@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+    Perfil
+{% endblock %}
+
+{% block Formulario %}
+
+<h3>Datos de usuario</h3> <br>
+
+{{message}}
+
+    {% for user_profile in object_list %}
+
+    {% if user_profile.imagen %}
+        <img src="{{user_profile.imagen.url}}" class="card-img-top" style="width:10%">
+    {% endif %}
+    <div class="card" style="margin-right:40rem;margin-top:2rem">
+        <div class="card-body">
+            <p class="card-text">Usuario: {{user_profile.usuario}}</p>
+            <p class="card-text">Nombre: {{user_profile.nombre}}</p>
+            <p class="card-text">Apellido: {{user_profile.apellido}}</p>
+            <p class="card-text">Email: {{user_profile.email}}</p>
+            <p class="card-text">Direccion: {{user_profile.direccion}}</p>
+            <p class="card-text">DNI: {{user_profile.dni}}</p>
+            <a href="/perfil/update_perfil/{{user_profile.id}}/" class="btn btn-primary">Editar</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
