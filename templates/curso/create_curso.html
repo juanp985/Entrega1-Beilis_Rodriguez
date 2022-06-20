@@ -4,7 +4,6 @@
 Crear curso
 {% endblock %}
 
-
 {% block Formulario %}
 
 <h3>Seccion para agregar un nuevo curso</h3> <br>
@@ -12,7 +11,7 @@ Crear curso
 {{message}}
 
     {% if cursos %}
-        <form action ="" method="POST">
+        <form action ="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <table>
                 {{cursos.as_table}}

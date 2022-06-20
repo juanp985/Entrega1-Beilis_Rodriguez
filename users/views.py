@@ -20,7 +20,7 @@ class Perfil(LoginRequiredMixin, ListView):
 class Update_perfil(LoginRequiredMixin, UpdateView):
     model = User_profile
     template_name= 'perfil/update_perfil.html'
-    fields = '__all__'
+    fields = ['nombre','apellido','telefono','direccion','dni','mail','imagen']
     
     def get_success_url(self):
       return reverse('perfil')

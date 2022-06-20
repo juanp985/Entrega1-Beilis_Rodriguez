@@ -10,23 +10,25 @@
 
 {{message}}
 
-    {% for user_profile in object_list %}
-
-    {% if user_profile.imagen %}
-        <img src="{{user_profile.imagen.url}}" class="card-img-top" style="width:10%">
-    {% endif %}
-    <div class="card" style="margin-right:40rem;margin-top:2rem">
-        <div class="card-body">
-            <p class="card-text">Usuario: {{user_profile.usuario}}</p>
-            <p class="card-text">Nombre: {{user_profile.nombre}}</p>
-            <p class="card-text">Apellido: {{user_profile.apellido}}</p>
-            <p class="card-text">Email: {{user_profile.email}}</p>
-            <p class="card-text">Direccion: {{user_profile.direccion}}</p>
-            <p class="card-text">DNI: {{user_profile.dni}}</p>
-            <a href="/perfil/update_perfil/{{user_profile.id}}/" class="btn btn-primary">Editar</a>
+    {% if request.user.user_profile %}
+        {% if request.user.user_profile.imagen %}
+            <img src="{{request.user.user_profile.imagen.url}}" class="card-img-top" style="width:10%">
+        {% endif %}
+        <div class="card" style="margin-right:40rem;margin-top:2rem">
+            <div class="card-body">
+                <p class="card-text">Usuario: {{request.user.user_profile.usuario}}</p>
+                <p class="card-text">Nombre: {{request.user.user_profile.nombre}}</p>
+                <p class="card-text">Apellido: {{request.user.user_profile.apellido}}</p>
+                <p class="card-text">Email: {{request.user.user_profile.mail}}</p>
+                <p class="card-text">Direccion: {{request.user.user_profile.direccion}}</p>
+                <p class="card-text">DNI: {{request.user.user_profile.dni}}</p>
+                <a href="/perfil/update_perfil/{{request.user.user_profile.id}}/" class="btn btn-primary">Editar</a>
+            </div>
         </div>
-    </div>
-    {% endfor %}
-</div>
+    {% else %}
+
+    <h5> El usuario no tiene creado un perfil, por favor contactarse con el administrador. </h5>
+
+    {% endif %}
 
 {% endblock %}

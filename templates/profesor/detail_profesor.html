@@ -1,16 +1,16 @@
 {% extends 'index.html' %}
 
 {% block titulo %}
-    Editar cursos
+    Editar profesor
 {% endblock %}
 
 {% block Formulario %}
 
 <h3>Detalle del profesor</h3> <br>
 
-        {% if profesor.imagen %}
-            <img src="{{profesor.imagen.url}}" class="card-img-top" >
-        {% endif %}
+    {% if profesor.imagen %}
+        <img src="{{profesor.imagen.url}}" lass="card-img-top" style="width:10%">
+    {% endif %}
     <div class="card" style="margin-right:40rem;margin-top:2rem">
         <div class="card-body">
             <p class="card-text">Legajo: {{profesor.legajo}}</p>

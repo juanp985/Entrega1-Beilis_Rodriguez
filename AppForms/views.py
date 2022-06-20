@@ -6,6 +6,7 @@ from django.views.generic import ListView, DeleteView, UpdateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
+
 ## Cursos ##
 @login_required
 def create_curso(request):
@@ -15,7 +16,7 @@ def create_curso(request):
             context = {'cursos':cursos}
             return render(request,'curso/create_curso.html', context=context)
       else:
-            cursos = Curso_form(request.POST)
+            cursos = Curso_form(request.POST, request.FILES)
             if cursos.is_valid():
                   new_curso = Curso.objects.create(
                         nombre = cursos.cleaned_data['nombre'],
@@ -31,7 +32,7 @@ class Cursos(LoginRequiredMixin, ListView):
     model = Curso
     template_name= 'curso/cursos.html'
 
-class Detail_curso(LoginRequiredMixin, ListView):
+class Detail_curso(LoginRequiredMixin, DetailView):
     model = Curso
     template_name= 'curso/detail_curso.html'
 
@@ -63,7 +64,7 @@ def create_profesor(request):
             context = {'profesores':profesores}
             return render(request,'profesor/create_profesor.html', context=context)
       else:
-            profesores = Profesor_form(request.POST)
+            profesores = Profesor_form(request.POST, request.FILES)
             if profesores.is_valid():
                   new_profesor = Profesor.objects.create(
                         legajo = profesores.cleaned_data['legajo'],
@@ -115,7 +116,7 @@ def create_estudiante(request):
             context = {'estudiantes':estudiantes}
             return render(request,'estudiante/create_estudiante.html', context=context)
       else:
-            estudiantes = Estudiante_form(request.POST)
+            estudiantes = Estudiante_form(request.POST, request.FILES)
             if estudiantes.is_valid():
                   new_estudiante = Estudiante.objects.create(
                         legajo = estudiantes.cleaned_data['legajo'],

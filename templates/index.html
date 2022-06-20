@@ -29,8 +29,10 @@
               Curso
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="/appforms/curso/cursos">Listar cursos</a>
-                <a class="dropdown-item" href="/appforms/curso/create_curso">Crear curso</a>
-                <a class="dropdown-item" href="/appforms/curso/edit_curso">Editar curso</a>
+                {% if request.user.is_staff %}
+                  <a class="dropdown-item" href="/appforms/curso/create_curso">Crear curso</a>
+                  <a class="dropdown-item" href="/appforms/curso/edit_curso">Editar curso</a>
+                {% endif %}
               </div>
             </a>
           </li>
@@ -39,8 +41,10 @@
               Profesor
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="/appforms/profesor/profesores">Listar profesores</a>
-                <a class="dropdown-item" href="/appforms/profesor/create_profesor">Crear profesor</a>
-                <a class="dropdown-item" href="/appforms/profesor/edit_profesor">Editar profesor</a>
+                {% if request.user.is_staff %}
+                  <a class="dropdown-item" href="/appforms/profesor/create_profesor">Crear profesor</a>
+                  <a class="dropdown-item" href="/appforms/profesor/edit_profesor">Editar profesor</a>
+                {% endif %}
               </div>
             </a>
           </li>
@@ -49,15 +53,17 @@
               Estudiante
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="/appforms/estudiante/estudiantes">Listar estudiantes</a>
-                <a class="dropdown-item" href="/appforms/estudiante/create_estudiante">Crear estudiante</a>
-                <a class="dropdown-item" href="/appforms/estudiante/edit_estudiante">Editar estudiante</a>
+                {% if request.user.is_staff %}
+                  <a class="dropdown-item" href="/appforms/estudiante/create_estudiante">Crear estudiante</a>
+                  <a class="dropdown-item" href="/appforms/estudiante/edit_estudiante">Editar estudiante</a>
+                {% endif %}
               </div>
             </a>
           </li>
           {% if request.user.is_authenticated %}
           <li class="nav-item" style="margin-right: 10rem">
           </li>
-          {% if user_profile.imagen %}
+          {% if request.user.user_profile.imagen %}
             <li class="nav-item">
               <img src="{{request.user.user_profile.imagen.url}}" style="height: 2rem;">
             </li>

@@ -9,7 +9,7 @@
     {% if profesor %}
         <h3>Complete los campos a actualizar</h3>
 
-        <form action="" method="POST" style="margin-right:40rem;margin-top:2rem">
+        <form action="" method="POST" style="margin-right:40rem;margin-top:2rem" enctype="multipart/form-data">
             {% csrf_token %}
             <table>
                 {{form.as_table}}

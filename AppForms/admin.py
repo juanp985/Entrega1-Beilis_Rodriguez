@@ -3,7 +3,7 @@ from AppForms.models import Profesor, Estudiante, Curso
 
 # Register your models here.
 @admin.register(Estudiante)
-class ProductsAdmin(admin.ModelAdmin):
+class EstudianteAdmin(admin.ModelAdmin):
     list_display = ['legajo','nombre', 'apellido', 'email']
 
 @admin.register(Profesor)
@@ -13,7 +13,6 @@ class ProfesorAdmin(admin.ModelAdmin):
 @admin.register(Curso)
 class CursoAdmin(admin.ModelAdmin):
     list_display = ['nombre','comision']
-
 
 
 

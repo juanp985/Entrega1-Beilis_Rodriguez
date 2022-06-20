@@ -1,17 +1,16 @@
 {% extends 'index.html' %}
 
 {% block titulo %}
-    Borrar cursos
+    Borrar profesores
 {% endblock %}
 
 {% block Formulario %}
 
-    <h3 style="color: red">Estas por eliminar el producto {{profesor.nombre}}, estas seguro?</h3>
-
+    <h4>Estas por eliminar el profesor {{profesor.nombre}}, estas seguro?</4>
+    
     <form method = "POST">
         {% csrf_token %}
-        <button class="btn btn-danger" type="submit">Eliminar</button>
+        <button class="btn btn-secondary" type="submit">Eliminar</button>
     </form>
-
 
 {% endblock %}

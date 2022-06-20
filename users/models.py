@@ -9,7 +9,6 @@ class User_profile(models.Model):
     direccion = models.CharField(max_length=20)
     dni = models.CharField(max_length=20)
     mail = models.EmailField(max_length=20)
-    #category = models.ForeignKey('Categoria', on_delete=models.CASCADE, related_name='products')
     imagen = models.ImageField(upload_to = 'users', blank=True, null=True)
 
 def __str__(self):
