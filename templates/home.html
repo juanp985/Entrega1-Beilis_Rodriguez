@@ -5,7 +5,55 @@ Home
 {% endblock %}
 
 {% block Formulario %}
+<style type="text/css">
+    .welcome{
+        display: grid;
+        padding: 1rem;
+        margin: 2rem;
+        border-radius: 2rem;
+    }
+    .welcome h1{
+        margin: 2rem;
+        justify-self: center;  
+    }
+    .welcome h3{
+        margin: 2rem;
+        justify-self: center;  
+    }
+    .description{
+        display: grid;
+        justify-self: center;
+        justify-content: center;
+        background-color: rgba(79, 76, 76, 0.788);
+        width: 90%;
+        border-radius: 3rem;
+        margin: auto;
+    }
+    .description .option1{
+        justify-items: center;
+        padding: 2rem;
+    }
+    .description .option2{
+        justify-items: center;
+        padding: 2rem;
+    }
 
-Home
+</style>
+    <div class="welcome" style="background-color: rgba(128, 128, 128, 0.68)">
+        <h1 class="title">Bienvenido a Educoder</h1>
+        <h3 class="subtitle">Desarrolla tus habilidades en tecnología</h3>
+    </div>
+
+
+<div class="description">
+    <div class="option1">
+        <h4 class="alumno">¿Quieres aprender?</h4>
+        <span>Registrate, especializate en las mas recientes tendencias digitales del campo laboral.</span>
+    </div>
+    <div class="option2">
+        <h4 class="profesor">¿Eres experto y quieres compartir tu expertis?</h4>
+        <span>Integrate con nosotros</span>
+    </div>
+</div>
 
 {% endblock %}
