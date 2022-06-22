@@ -14,7 +14,6 @@
         {% if request.user.user_profile.imagen %}
             <img src="{{request.user.user_profile.imagen.url}}" class="card-img-top" style="width:10%">
         {% endif %}
-        <div class="card" style="margin-right:40rem;margin-top:2rem">
             <div class="card-body" style="background-color: rgba(128, 128, 128, 0.68)">
                 <p class="card-text" style="color:white;">Usuario: {{request.user.user_profile.usuario}}</p>
                 <p class="card-text" style="color:white;">Nombre: {{request.user.user_profile.nombre}}</p>
@@ -24,7 +23,6 @@
                 <p class="card-text" style="color:white;">DNI: {{request.user.user_profile.dni}}</p>
                 <a href="/perfil/update_perfil/{{request.user.user_profile.id}}/" class="btn btn-secondary">Editar</a>
             </div>
-        </div>
     {% else %}
 
     <h5> El usuario no tiene creado un perfil, por favor contactarse con el administrador. </h5>
