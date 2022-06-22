@@ -24,42 +24,42 @@
           <li class="nav-item">
             <a class="nav-link" href="/about/">About</a>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Curso 
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="/appforms/curso/cursos">Listar cursos</a></li>
+                {% if request.user.is_staff %}
+                  <li><a class="dropdown-item" href="/appforms/curso/create_curso">Crear curso</a></li>
+                  <li><a class="dropdown-item" href="/appforms/curso/edit_curso">Editar curso</a></li>
+                {% endif %}
+            </ul>
+          </li>
           {% if request.user.is_authenticated %}
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Curso
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="/appforms/curso/cursos">Listar cursos</a>
-                  {% if request.user.is_staff %}
-                    <a class="dropdown-item" href="/appforms/curso/create_curso">Crear curso</a>
-                    <a class="dropdown-item" href="/appforms/curso/edit_curso">Editar curso</a>
-                  {% endif %}
-                </div>
+                Profesor 
               </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="/appforms/profesor/profesores">Listar profesores</a></li>
+                  {% if request.user.is_staff %}
+                    <li><a class="dropdown-item" href="/appforms/profesor/create_profesor">Crear profesor</a></li>
+                    <li><a class="dropdown-item" href="/appforms/profesor/edit_profesor">Editar profesor</a></li>
+                  {% endif %}
+              </ul>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Profesor
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="/appforms/profesor/profesores">Listar profesores</a>
-                  {% if request.user.is_staff %}
-                    <a class="dropdown-item" href="/appforms/profesor/create_profesor">Crear profesor</a>
-                    <a class="dropdown-item" href="/appforms/profesor/edit_profesor">Editar profesor</a>
-                  {% endif %}
-                </div>
+                Estudiante 
               </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Estudiante
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="/appforms/estudiante/estudiantes">Listar estudiantes</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="/appforms/estudiante/estudiantes">Listar estudiantes</a></li>
                   {% if request.user.is_staff %}
-                    <a class="dropdown-item" href="/appforms/estudiante/create_estudiante">Crear estudiante</a>
-                    <a class="dropdown-item" href="/appforms/estudiante/edit_estudiante">Editar estudiante</a>
+                    <li><a class="dropdown-item" href="/appforms/estudiante/create_estudiante">Crear estudiante</a></li>
+                    <li><a class="dropdown-item" href="/appforms/estudiante/edit_estudiante">Editar estudiante</a></li>
                   {% endif %}
-                </div>
-              </a>
+              </ul>
             </li>
             {% if request.user.user_profile.imagen %}
                 <li class="nav-item">
@@ -81,7 +81,7 @@
             </li>
           {% endif %}
         </ul>
-        <form class="form-inline my-2 my-lg-0" action = "/appforms/estudiante/search_estudiante", method = "GET"> 
+        <form class="form-inline my-2 my-sm-0" action = "/appforms/estudiante/search_estudiante", method = "GET"> 
           <input class="form-control mr-sm-2" type= "text" placeholder= "Buscar alumno" aria-label= "search" name = 'search'>
           <button class="btn btn-sm btn-outline-secondary" type="submit">Buscar</button>
         </form>

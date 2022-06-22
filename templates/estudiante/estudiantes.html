@@ -15,8 +15,8 @@
                     <p class="card-text" style="color:white";>Apellido: {{estudiante.apellido}}</p>
                     <a href="/appforms/estudiante/detail_estudiante/{{estudiante.id}}/" class="btn btn-secondary">Detalle</a>
                     </div>
-                </div>
                 {% endfor %}
+            </div>
         {% else %}
             <h5 style="color:white";>No se ha agregado ningun estudiante</h5>
         {% endif %}
