@@ -6,16 +6,16 @@ Buscar alumno
 
 {% block Formulario %}
 
-<h3>Resultado de la busqueda del estudiante</h3> <br>
+<h3 style="color:white";>Resultado de la busqueda del estudiante</h3> <br>
 
 {{message}}
     
     {% for estudiante in estudiantes %}
         <div class="card-body">
-            <h5 class="card-title">Legajo: {{estudiante.legajo}}</h5>
-            <h5 class="card-title">Nombre: {{estudiante.nombre}}</h5>
-            <h5 class="card-title">Apellido: {{estudiante.apellido}}</h5>
-            <h5 class="card-title">Email: {{estudiante.email}}</h5>
+            <h5 class="card-title" style="color:white";>Legajo: {{estudiante.legajo}}</h5>
+            <h5 class="card-title" style="color:white";>Nombre: {{estudiante.nombre}}</h5>
+            <h5 class="card-title" style="color:white";>Apellido: {{estudiante.apellido}}</h5>
+            <h5 class="card-title" style="color:white";>Email: {{estudiante.email}}</h5>
         </div>
     {% endfor %}
 
