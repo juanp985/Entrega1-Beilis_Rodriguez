@@ -11,10 +11,10 @@
     {% if object_list %}
         {% for profesor in object_list %}
             <div class="card" style="margin-right:40rem;margin-top:2rem">
-                <div class="card-body">
+                <div class="card-body" style="background-color: rgba(128, 128, 128, 0.68)">
                     <p class="card-text">Legajo: {{profesor.legajo}}</p>    
                     <p class="card-text">Apellido: {{profesor.apellido}}</p>
-                    <a href="/appforms/profesor/detail_profesor/{{profesor.id}}/" class="btn btn-primary">Detalle</a>
+                    <a href="/appforms/profesor/detail_profesor/{{profesor.id}}/" class="btn btn-secondary">Detalle</a>
                     </div>
                 </div>
                 {% endfor %}

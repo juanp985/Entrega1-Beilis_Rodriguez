@@ -11,9 +11,9 @@
     {% if object_list %}
         {% for curso in object_list %}
             <div class="card" style="margin-right:40rem;margin-top:2rem">
-                <div class="card-body">
+                <div class="card-body" style="background-color: rgba(128, 128, 128, 0.68)">
                     <p class="card-text">Comision: {{curso.comision}}</p>
-                    <a href="/appforms/curso/detail_curso/{{curso.id}}/" class="btn btn-primary">Detalle</a>
+                    <a href="/appforms/curso/detail_curso/{{curso.id}}/" class="btn btn-secondary">Detalle</a>
                     </div>
                 </div>
                 {% endfor %}
