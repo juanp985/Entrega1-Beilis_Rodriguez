@@ -6,21 +6,19 @@
 
 {% block Formulario %}
 
-<h3>Listado de todos los profesores</h3> <br>
+<h3 style="color:white";>Listado de todos los profesores</h3> <br>
 
     {% if object_list %}
         {% for profesor in object_list %}
-            <div class="card" style="margin-right:40rem;margin-top:2rem">
                 <div class="card-body" style="background-color: rgba(128, 128, 128, 0.68)">
-                    <p class="card-text">Legajo: {{profesor.legajo}}</p>    
-                    <p class="card-text">Apellido: {{profesor.apellido}}</p>
+                    <p class="card-text" style="color:white";>Legajo: {{profesor.legajo}}</p>    
+                    <p class="card-text" style="color:white";>Apellido: {{profesor.apellido}}</p>
                     <a href="/appforms/profesor/detail_profesor/{{profesor.id}}/" class="btn btn-secondary">Detalle</a>
                     </div>
-                </div>
                 {% endfor %}
             </div>
     {% else %}
-        <h5>No se ha agregado ningun profesor</h5>
+        <h5 style="color:white";>No se ha agregado ningun profesor</h5>
     {% endif %}
         </div>
 

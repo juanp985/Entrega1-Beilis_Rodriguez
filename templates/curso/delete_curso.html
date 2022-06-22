@@ -6,11 +6,11 @@
 
 {% block Formulario %}
 
-    <h4>Estas por eliminar el curso {{curso.nombre}}, estas seguro?</4>
+    <h4 style="color:white";>Estas por eliminar el curso {{curso.nombre}}, estas seguro?</4>
     
     <form method = "POST">
         {% csrf_token %}
-        <button class="btn btn-secondary" type="submit">Eliminar</button>
+        <br><button class="btn btn-danger" type="submit">Eliminar</button>
     </form>
 
 {% endblock %}

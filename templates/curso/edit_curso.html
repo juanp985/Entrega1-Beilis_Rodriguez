@@ -6,25 +6,23 @@
 
 {% block Formulario %}
 
-<h3>Listado de cursos a editar</h3> <br>
+<h3 style="color:white";>Listado de cursos a editar</h3> <br>
 
 {% if object_list %}
     {% for curso in object_list %}
 
-    <div class="card" style="margin-right:40rem;margin-top:2rem">
         <div class="card-body" style="background-color: rgba(128, 128, 128, 0.68)">
-          <p class="card-text">Comision: {{curso.comision}}</h5>
-          <p class="card-text">Nombre: {{curso.nombre}}</h5><br>
-          <a href="/appforms/curso/update_curso/{{curso.id}}/" class="btn btn-secondary">Editar</a>
+          <p class="card-text" style="color:white;">Comision: {{curso.comision}}</h5>
+          <p class="card-text" style="color:white;">Nombre: {{curso.nombre}}</h5><br>
+          <br><a href="/appforms/curso/update_curso/{{curso.id}}/" class="btn btn-secondary">Editar</a>
           <a href="/appforms/curso/delete_curso/{{curso.id}}/" class="btn btn-danger">Eliminar</a>
         </div>
-    </div>
 
     {% endfor %}
 
 {% else %}
 
-    <h5>No se ha agregado ningun estudiante</h5>
+    <h5 style="color:white";>No se ha agregado ningun estudiante</h5>
 
 {% endif %}
 

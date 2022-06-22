@@ -1,26 +1,26 @@
 {% extends 'index.html' %}
 {% block Formulario %}
 
-<h3>Seccion para agregar un nuevo profesor</h3> <br>
+<h3 style="color:white";>Seccion para agregar un nuevo profesor</h3> <br>
 
 {{message}}
 
     {% if profesores %}
         <form action ="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <table>
+            <table style="color:white";>
                 {{profesores.as_table}}
             </table>
-        <input type = "submit", value = "Crear" class="btn btn-secondary">    
+        <input type = "submit", value = "Crear" class="btn btn-danger">    
 
     {% elif new_profesor %}
             <div class="card-body">
-                <h5 class="card-title">Legajo: {{new_profesor.legajo}}</h5>
-                <h5 class="card-title">Nombre: {{new_profesor.nombre}}</h5>
-                <h5 class="card-title">Apellido: {{new_profesor.apellido}}</h5>
-                <h5 class="card-title">Email: {{new_profesor.email}}</h5>
-                <h5 class="card-title">Profesion: {{new_profesor.profesion}}</h5><br>
-                <h5> El profesor se ha creado con exito! </h5>
+                <h5 class="card-title" style="color:white";>Legajo: {{new_profesor.legajo}}</h5>
+                <h5 class="card-title" style="color:white";>Nombre: {{new_profesor.nombre}}</h5>
+                <h5 class="card-title" style="color:white";>Apellido: {{new_profesor.apellido}}</h5>
+                <h5 class="card-title" style="color:white";>Email: {{new_profesor.email}}</h5>
+                <h5 class="card-title" style="color:white";>Profesion: {{new_profesor.profesion}}</h5><br>
+                <h5 style="color:white";> El profesor se ha creado con exito! </h5>
             </div>
     {% endif %}
 

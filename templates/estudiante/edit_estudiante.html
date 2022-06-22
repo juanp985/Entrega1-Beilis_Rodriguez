@@ -6,21 +6,19 @@
 
 {% block Formulario %}
 
-<h3>Listado de estudiantes a editar</h3> <br>
+<h3 style="color:white";>Listado de estudiantes a editar</h3> <br>
 
 {% if object_list %}
     {% for estudiante in object_list %}
 
-    <div class="card" style="margin-right:40rem;margin-top:2rem">
         <div class="card-body" style="background-color: rgba(128, 128, 128, 0.68)">
-            <p class="card-text">Legajo: {{estudiante.legajo}}</p>
-            <p class="card-text">Nombre: {{estudiante.nombre}}</p>
-            <p class="card-text">Apellido: {{estudiante.apellido}}</p>
-            <p class="card-text">Email: {{estudiante.email}}</p><br>
+            <p class="card-text" style="color:white";>Legajo: {{estudiante.legajo}}</p>
+            <p class="card-text" style="color:white";>Nombre: {{estudiante.nombre}}</p>
+            <p class="card-text" style="color:white";>Apellido: {{estudiante.apellido}}</p>
+            <p class="card-text" style="color:white";>Email: {{estudiante.email}}</p><br>
             <a href="/appforms/estudiante/update_estudiante/{{estudiante.id}}/" class="btn btn-secondary">Editar</a>
             <a href="/appforms/estudiante/delete_estudiante/{{estudiante.id}}/" class="btn btn-danger">Eliminar</a>
         </div>
-    </div>
 
     {% endfor %}
 

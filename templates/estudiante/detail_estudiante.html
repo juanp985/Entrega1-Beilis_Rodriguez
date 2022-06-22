@@ -6,18 +6,16 @@
 
 {% block Formulario %}
 
-<h3>Detalle del estudiante</h3> <br>
+<h3 style="color:white";>Detalle del estudiante</h3> <br>
 
     {% if estudiante.imagen %}
         <img src="{{estudiante.imagen.url}}" class="card-img-top" style="width:10%">
     {% endif %}
-    <div class="card" style="margin-right:40rem;margin-top:2rem" >
         <div class="card-body" style="background-color: rgba(128, 128, 128, 0.68)">
-            <p class="card-text">Legajo: {{estudiante.legajo}}</p>
-            <p class="card-text">Nombre: {{estudiante.nombre}}</p>
-            <p class="card-text">Apellido: {{estudiante.apellido}}</p>
-            <p class="card-text">Email: {{estudiante.email}}</p>
+            <p class="card-text" style="color:white";>Legajo: {{estudiante.legajo}}</p>
+            <p class="card-text" style="color:white";>Nombre: {{estudiante.nombre}}</p>
+            <p class="card-text" style="color:white";>Apellido: {{estudiante.apellido}}</p>
+            <p class="card-text" style="color:white";>Email: {{estudiante.email}}</p>
         </div>
-    </div>
 
 {% endblock %}

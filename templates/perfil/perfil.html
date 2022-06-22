@@ -15,14 +15,14 @@
             <img src="{{request.user.user_profile.imagen.url}}" class="card-img-top" style="width:10%">
         {% endif %}
         <div class="card" style="margin-right:40rem;margin-top:2rem">
-            <div class="card-body">
-                <p class="card-text">Usuario: {{request.user.user_profile.usuario}}</p>
-                <p class="card-text">Nombre: {{request.user.user_profile.nombre}}</p>
-                <p class="card-text">Apellido: {{request.user.user_profile.apellido}}</p>
-                <p class="card-text">Email: {{request.user.user_profile.mail}}</p>
-                <p class="card-text">Direccion: {{request.user.user_profile.direccion}}</p>
-                <p class="card-text">DNI: {{request.user.user_profile.dni}}</p>
-                <a href="/perfil/update_perfil/{{request.user.user_profile.id}}/" class="btn btn-primary">Editar</a>
+            <div class="card-body" style="background-color: rgba(128, 128, 128, 0.68)">
+                <p class="card-text" style="color:white;">Usuario: {{request.user.user_profile.usuario}}</p>
+                <p class="card-text" style="color:white;">Nombre: {{request.user.user_profile.nombre}}</p>
+                <p class="card-text" style="color:white;">Apellido: {{request.user.user_profile.apellido}}</p>
+                <p class="card-text" style="color:white;">Email: {{request.user.user_profile.mail}}</p>
+                <p class="card-text" style="color:white;">Direccion: {{request.user.user_profile.direccion}}</p>
+                <p class="card-text" style="color:white;">DNI: {{request.user.user_profile.dni}}</p>
+                <a href="/perfil/update_perfil/{{request.user.user_profile.id}}/" class="btn btn-secondary">Editar</a>
             </div>
         </div>
     {% else %}

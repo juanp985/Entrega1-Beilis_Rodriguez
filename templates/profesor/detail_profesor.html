@@ -6,19 +6,17 @@
 
 {% block Formulario %}
 
-<h3>Detalle del profesor</h3> <br>
+<h3 style="color:white";>Detalle del profesor</h3> <br>
 
     {% if profesor.imagen %}
         <img src="{{profesor.imagen.url}}" lass="card-img-top" style="width:10%">
     {% endif %}
-    <div class="card" style="margin-right:40rem;margin-top:2rem">
         <div class="card-body" style="background-color: rgba(128, 128, 128, 0.68)">
-            <p class="card-text">Legajo: {{profesor.legajo}}</p>
-            <p class="card-text">Nombre: {{profesor.nombre}}</p>
-            <p class="card-text">Apellido: {{profesor.apellido}}</p>
-            <p class="card-text">Email: {{profesor.email}}</p>
-            <p class="card-text">Profesion: {{profesor.profesion}}</p>
+            <p class="card-text" style="color:white";>Legajo: {{profesor.legajo}}</p>
+            <p class="card-text" style="color:white";>Nombre: {{profesor.nombre}}</p>
+            <p class="card-text" style="color:white";>Apellido: {{profesor.apellido}}</p>
+            <p class="card-text" style="color:white";>Email: {{profesor.email}}</p>
+            <p class="card-text" style="color:white";>Profesion: {{profesor.profesion}}</p>
         </div>
-    </div>
 
 {% endblock %}
