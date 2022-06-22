@@ -28,4 +28,5 @@ urlpatterns =[
     path('estudiante/edit_estudiante/', Edit_estudiante.as_view(), name = 'edit_estudiante'),
     path('estudiante/delete_estudiante/<int:pk>/', Delete_estudiante.as_view(), name = 'delete_estudiante'),
     path('estudiante/update_estudiante/<int:pk>/', Update_estudiante.as_view(), name = 'update_estudiante'),
+    path('estudiante/search_estudiante', search_estudiante, name = 'search_estudiante'),
 ]
