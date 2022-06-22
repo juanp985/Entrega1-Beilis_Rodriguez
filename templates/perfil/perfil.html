@@ -6,7 +6,7 @@
 
 {% block Formulario %}
 
-<h3>Datos de usuario</h3> <br>
+<h3 style="color:white";>Datos de usuario</h3> <br>
 
 {{message}}
 
@@ -14,7 +14,7 @@
         {% if request.user.user_profile.imagen %}
             <img src="{{request.user.user_profile.imagen.url}}" class="card-img-top" style="width:10%">
         {% endif %}
-            <div class="card-body" style="background-color: rgba(128, 128, 128, 0.68)">
+        <div class="card-body" style="background-color: rgba(128, 128, 128, 0.68)">
                 <p class="card-text" style="color:white;">Usuario: {{request.user.user_profile.usuario}}</p>
                 <p class="card-text" style="color:white;">Nombre: {{request.user.user_profile.nombre}}</p>
                 <p class="card-text" style="color:white;">Apellido: {{request.user.user_profile.apellido}}</p>
