@@ -62,13 +62,11 @@
                 </div>
               </a>
             </li>
-            <li class="nav-item" style="margin-right: 10rem">
-            </li>
             {% if request.user.user_profile.imagen %}
-              <li class="nav-item">
-                <img src="{{request.user.user_profile.imagen.url}}" style="height: 2rem;">
-              </li>
-            {% endif %}
+                <li class="nav-item">
+                  <img src="{{request.user.user_profile.imagen.url}}" style="height: 2rem;">
+                </li>
+              {% endif %}
             <li class="nav-item">
               <a class="nav-link" href="/perfil/perfil">{{request.user.username}}</a>
             </li>
