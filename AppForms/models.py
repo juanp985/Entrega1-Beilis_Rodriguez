@@ -6,6 +6,8 @@ class Curso(models.Model):
     comision = models.IntegerField()
     nombre=models.CharField(max_length=40)
     imagen = models.ImageField(upload_to = 'AppForms', blank=True, null=True)
+    #category = models.ForeignKey('Categoria', on_delete=models.CASCADE, related_name='products')
+    activo = models.BooleanField(default=True)
 
 class Meta:
         verbose_name = 'curso'
@@ -20,6 +22,7 @@ class Estudiante(models.Model):
     apellido= models.CharField(max_length=30)
     email= models.EmailField()
     imagen = models.ImageField(upload_to = 'AppForms', blank=True, null=True)
+    activo = models.BooleanField(default=True)
 
 class Meta:
         verbose_name = 'estudiante'
@@ -35,6 +38,7 @@ class Profesor(models.Model):
     email= models.EmailField()
     profesion= models.CharField(max_length=30)
     imagen = models.ImageField(upload_to = 'AppForms', blank=True, null=True)
+    activo = models.BooleanField(default=True)
 
 class Meta:
         verbose_name = 'profesor'

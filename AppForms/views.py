@@ -22,6 +22,7 @@ def create_curso(request):
                         nombre = cursos.cleaned_data['nombre'],
                         comision = cursos.cleaned_data['comision'],
                         imagen = cursos.cleaned_data['imagen'],
+                        activo = cursos.cleaned_data['activo'],
                   )
                   context = {'new_curso':new_curso}
             else:
@@ -31,6 +32,7 @@ def create_curso(request):
 class Cursos(LoginRequiredMixin, ListView):
     model = Curso
     template_name= 'curso/cursos.html'
+    queryset = Curso.objects.filter(activo = True)
 
 class Detail_curso(LoginRequiredMixin, DetailView):
     model = Curso
@@ -51,7 +53,8 @@ class Update_curso(LoginRequiredMixin, UpdateView):
     model = Curso
     template_name= 'curso/update_curso.html'
     fields = '__all__'
-    
+    queryset = Curso.objects.filter(activo = True)
+
     def get_success_url(self):
       return reverse('cursos')
 
@@ -73,6 +76,7 @@ def create_profesor(request):
                         email = profesores.cleaned_data['email'],
                         profesion = profesores.cleaned_data['profesion'],
                         imagen = profesores.cleaned_data['imagen'],
+                        activo = profesores.cleaned_data['activo'],
                   )
                   context = {'new_profesor':new_profesor}
             else:
@@ -83,6 +87,7 @@ def create_profesor(request):
 class Profesores(LoginRequiredMixin, ListView):
     model = Profesor
     template_name= 'profesor/profesores.html'
+    queryset = Profesor.objects.filter(activo = True)
 
 class Detail_profesor(LoginRequiredMixin, DetailView):
     model = Profesor
@@ -103,6 +108,7 @@ class Update_profesor(LoginRequiredMixin, UpdateView):
     model = Profesor
     template_name= 'profesor/update_profesor.html'
     fields = '__all__'
+    queryset = Profesor.objects.filter(activo = True)
     
     def get_success_url(self):
       return reverse('profesores')
@@ -124,6 +130,7 @@ def create_estudiante(request):
                         apellido = estudiantes.cleaned_data['apellido'],
                         email = estudiantes.cleaned_data['email'],
                         imagen = estudiantes.cleaned_data['imagen'],
+                        activo = estudiantes.cleaned_data['activo'],
                   )
                   context = {'new_estudiante':new_estudiante}
             else:
@@ -133,6 +140,7 @@ def create_estudiante(request):
 class Estudiantes(LoginRequiredMixin, ListView):
     model = Estudiante
     template_name= 'estudiante/estudiantes.html'
+    queryset = Estudiante.objects.filter(activo = True)
 
 class Detail_estudiante(LoginRequiredMixin, DetailView):
     model = Estudiante
@@ -153,6 +161,7 @@ class Update_estudiante(LoginRequiredMixin, UpdateView):
     model = Estudiante
     template_name= 'estudiante/update_estudiante.html'
     fields = '__all__'
+    queryset = Estudiante.objects.filter(activo = True)
     
     def get_success_url(self):
       return reverse('estudiantes')
