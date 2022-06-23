@@ -5,48 +5,104 @@ About
 {% endblock %}
 
 {% block Formulario %}
+<style type="text/css">
+    .welcome{
+        display: grid;
+        padding: 1rem;
+        margin: 2rem;
+        border-radius: 2rem;
+        background-color: rgba(128, 128, 128, 0.932)
+    }
+    .welcome h1{
+        margin: 2rem;
+        justify-self: center;  
+    }
 
+    .welcome h3{
+        color:white;
+        text-align:center;
+    }
+
+    .welcome h4{
+        color: white;
+        text-align: center;
+    }
+
+    .welcome a{
+        text-align: center;
+    }    
+    .img1{
+        width: 250px;
+        justify-self: center;
+        border-radius: 5rem;
+    }
+    .img2{
+        width: 200px;
+        justify-self: center;
+        border-radius: 5rem;
+    }
+
+    .headstart{
+        display: grid;
+        padding: 1rem;
+        margin: 2rem;
+        border-radius: 2rem;
+        background-color: rgba(128, 128, 128, 0.932)
+    }
+
+    .about_head-title{
+        display: grid;
+        padding: 1rem;
+        margin: 2rem;
+        border-radius: 2rem;
+        background-color: rgba(128, 128, 128, 0.932)
+    }
+
+    .about_head-title .titleabout{
+        font-size: 3rem;
+    }
+
+    .about_head-title h2, h5{
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+</style>    
 <div class="aboutstart">
-    <div class="about_title">
-        <div class="about_head-title">
-            <h2 class="titleabout" style="color:white;">
-                ¿Quienes somos?
-            </h2>
-        </div>
-        <div class="about_head-description">
-            <h5 class="description-about" style="color:white;">
-               De desarrolladores para desarrolladores...<br> 
-               Somos la plataforma para aprender, enseñar, compartir y desarrollar projectos web y de tecnologías digitales.<br><br>
-            </h5>
-        </div>
-    </div>
-    <style type="text/css">
-        .welcome{
-            display: grid;
-            padding: 1rem;
-            margin: 2rem;
-            border-radius: 2rem;
-        }
-        .welcome h1{
-            margin: 2rem;
-            justify-self: center;  
-        }
-    </style>
+   <div class="headstart">
+        <div class="about_title">
+            <div class="about_head-title">
+                <h2 class="titleabout" style="color:rgb(21, 21, 21);">
+                    ¿Quienes somos?
+                </h2>
+            </div>
+            <div class="about_head-description">
+                <h5 class="description-about" style="color:rgb(23, 21, 21);">
+                 De desarrolladores para desarrolladores...<br> 
+                 Somos la plataforma para aprender, enseñar, compartir y desarrollar projectos web y de tecnologías digitales.<br><br>
+                </h5>
+             </div>
+            </div> 
+        </div>    
 
-    <div class="welcome" style="background-color: rgba(128, 128, 128, 0.68)">
-        <h3 class="title" style="color:white;text-align:center">Juan Pablo Beilis</h3>
-        <h4 class="subtitle" style="color:white;text-align:center">Argentina</h4>
-        <h4 class="subtitle" style="color:white;text-align:center">Data Engineer</h4>
+    <div class="welcome" >
+        <h3 class="title" >Juan Pablo Beilis</h3>
+        <h4 class="subtitle" >Argentina</h4>
+        <h4 class="subtitle" >Data Engineer</h4>
         <a style="text-align:center" href="https://www.linkedin.com/in/juanpablobeilis/"> Perfil Linkedin</a>
+        <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" class="img2">
     </div>
 
-    <div class="welcome" style="background-color: rgba(128, 128, 128, 0.68)">
-        <h3 class="title" style="color:white;text-align:center">Josue Aaron Rodriguez Suarez</h3>
-        <h4 class="subtitle" style="color:white;text-align:center">Mexico</h4>
-        <h4 class="subtitle" style="color:white;text-align:center">PHP Developer</h4>
-        <a style="text-align:center" href="https://www.google.com.mx/"> Perfil Linkedin</a>
+    <div class="welcome" >
+        
+            <h3 class="title" >Josue Aaron Rodriguez Suarez</h3>
+            <h4 class="subtitle" >Mexico</h4>
+            <h4 class="subtitle" >Fullstack Developer</h4>
+            <a style="text-align:center" href="https://www.google.com.mx/"> Perfil Linkedin</a>
+        
+            <img src="https://cdn.pixabay.com/photo/2016/10/16/16/33/dual-screen-1745705_1280.png"  alt="img" class="img1"/>
     </div>
-
+    
 </div>
 
 {% endblock %}
