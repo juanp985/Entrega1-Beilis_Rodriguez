@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.urls import reverse
-from AppForms.models import Curso, Profesor, Estudiante
-from AppForms.forms import Curso_form, Profesor_form, Estudiante_form
+from AppForms.models import Curso, Profesor, Estudiante#, Detalle_curso, Detalle_materia
+from AppForms.forms import Curso_form, Profesor_form, Estudiante_form#, Detalle_curso_form, Detalle_materia_form
 from django.views.generic import ListView, DeleteView, UpdateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-
+from datetime import date
 
 ## Cursos ##
 @login_required
@@ -162,6 +162,7 @@ class Update_estudiante(LoginRequiredMixin, UpdateView):
     template_name= 'estudiante/update_estudiante.html'
     fields = '__all__'
     queryset = Estudiante.objects.filter(activo = True)
+
     
     def get_success_url(self):
       return reverse('estudiantes')
@@ -182,3 +183,55 @@ def search_estudiante(request):
     else:
       context = {'errors':'No se ha escrito nada en la barra de busqueda.'}
       return render(request, 'estudiante/search_estudiante.html', context = context)
+
+"""
+## Detalle_curso ##
+@login_required
+def create_detalle_curso(request):
+      
+      if request.method == 'GET':
+            detalle_cursos = Detalle_curso_form ()
+            context = {'detalle_cursos':detalle_cursos}
+            return render(request,'curso/create_curso.html', context=context)
+      else:
+            detalle_cursos = Curso_form(request.POST, request.FILES)
+            if detalle_cursos.is_valid():
+                  new_detalle_curso = Curso.objects.create(
+                        anio_materia = new_detalle_curso.cleaned_data['anio_materia'],
+                        materia = new_detalle_curso.cleaned_data['materia'],
+                        detalle_materia = new_detalle_curso.cleaned_data['detalle_materia'],
+                  )
+                  context = {'new_detalle_curso':new_detalle_curso}
+            else:
+                  context = {'errors': detalle_cursos.errors}
+            return render(request,'curso/create_curso.html', context = context)
+
+class Detalle_cursos(LoginRequiredMixin, ListView):
+    model = Curso
+    template_name= 'curso/cursos.html'
+    queryset = Curso.objects.filter(activo = True)
+
+class Detalle_detail_curso(LoginRequiredMixin, DetailView):
+    model = Curso
+    template_name= 'curso/detail_curso.html'
+
+class Detalle_edit_curso(LoginRequiredMixin, ListView):
+    model = Curso
+    template_name= 'curso/edit_curso.html'
+
+class Detalle_delete_curso(LoginRequiredMixin, DeleteView):
+    model = Curso
+    template_name= 'curso/delete_curso.html'
+
+    def get_success_url(self):
+        return reverse('cursos')
+
+class Detalle_update_curso(LoginRequiredMixin, UpdateView):
+    model = Curso
+    template_name= 'curso/update_curso.html'
+    fields = '__all__'
+    queryset = Curso.objects.filter(activo = True)
+
+    def get_success_url(self):
+      return reverse('cursos')
+"""
