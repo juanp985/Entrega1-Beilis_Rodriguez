@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def buscar(request):
     return render(request, 'search_estudiante.html')
