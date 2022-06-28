@@ -128,7 +128,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/home/jua985/Entrega1-Beilis_Rodriguez/Forms/static'
+STATIC_ROOT = '/home/jua985/Entrega1-Beilis_Rodriguez/static'
 
 MEDIA_URL = '/media/'
 
