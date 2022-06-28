@@ -28,7 +28,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 BASE_APPS = [
@@ -128,6 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = '/home/jua985/Entrega1-Beilis_Rodriguez/Forms/static'
 
 MEDIA_URL = '/media/'
 
