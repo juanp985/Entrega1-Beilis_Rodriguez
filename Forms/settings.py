@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%mrq7+2ty)a-wv=xcf(iysq704f=%(zn0vn)ybiczt2o%03+ts
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['jua985.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -128,8 +128,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
-STATIC_ROOT = '/home/jua985/Entrega1-Beilis_Rodriguez/Forms/static'
 
 MEDIA_URL = '/media/'
 
