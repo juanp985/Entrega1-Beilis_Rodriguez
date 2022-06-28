@@ -9,7 +9,7 @@ class User_profile(models.Model):
     direccion = models.CharField(max_length=20)
     dni = models.CharField(max_length=20)
     mail = models.EmailField(max_length=20)
-    imagen = models.ImageField(upload_to = 'media/users', blank=True, null=True)
+    imagen = models.ImageField(upload_to = 'users', blank=True, null=True)
 
 def __str__(self):
         return self.name
