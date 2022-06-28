@@ -3,8 +3,6 @@
 
 <h3 style="color:white";>Seccion para agregar un nuevo estudiante</h3> <br>
 
-{{message}}
-
     {% if estudiantes %}
         <form action ="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
@@ -24,6 +22,6 @@
             </div>
     {% endif %}
 
-    <h5> {{errors}} </h5>   
+<h5 style="color:white";> {{errors}} </h5>
 
 {% endblock %}    

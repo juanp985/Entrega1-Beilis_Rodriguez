@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
-from AppForms.models import Curso, Profesor, Estudiante#, Detalle_curso, Detalle_materia
-from AppForms.forms import Curso_form, Profesor_form, Estudiante_form#, Detalle_curso_form, Detalle_materia_form
+from AppForms.models import Curso, Profesor, Estudiante
+from AppForms.forms import Curso_form, Profesor_form, Estudiante_form
 from django.views.generic import ListView, DeleteView, UpdateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required

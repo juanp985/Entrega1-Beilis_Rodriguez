@@ -33,7 +33,7 @@
             <a class="nav-link" href="/"><h5>EduCoder</h5></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about/">About</a>
+            <a class="nav-link" href="/about/">Acerca de nosotros</a>
           </li>
           {% if request.user.is_authenticated %}
           <li class="nav-item dropdown">
@@ -85,14 +85,14 @@
               <a class="nav-link" href="/perfil/perfil">{{request.user.username}}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/logout/">Logout</a>
+              <a class="nav-link" href="/logout/">Cerrar sesion</a>
             </li>
           {% else %}
             <li class="nav-item">
-                <a class="nav-link" href="/login/">Login</a>
+                <a class="nav-link" href="/login/">Iniciar sesion</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/register/">Register</a>
+                <a class="nav-link" href="/register/">Registrarse</a>
             </li>
           {% endif %}
         </ul>

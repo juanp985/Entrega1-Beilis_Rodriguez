@@ -8,8 +8,8 @@ Buscar alumno
 
 <h3 style="color:white";>Resultado de la busqueda del estudiante</h3> <br>
 
-{{message}}
-    
+<h5 style="color:white";> {{message}} </h5>
+
     {% for estudiante in estudiantes %}
         <div class="card-body">
             <h5 class="card-title" style="color:white";>Legajo: {{estudiante.legajo}}</h5>
@@ -20,6 +20,6 @@ Buscar alumno
         </div>
     {% endfor %}
 
-    <h5> {{errors}} </h5>
+<h5 style="color:white";> {{errors}} </h5>
 
 {% endblock %}

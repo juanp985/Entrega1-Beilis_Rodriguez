@@ -1,6 +1,6 @@
 from Forms.forms import User_registration_form
 from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
@@ -20,8 +20,7 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                context = {'message':f'Bienvenido {username}!! :D'}
-                return render(request, 'home.html', context = context)
+                return redirect('home')
             else:
                 context = {'errors':'No hay ningun usuario con esas credenciales.'}
                 form = AuthenticationForm()
@@ -48,8 +47,7 @@ def register_view(request):
             password = form.cleaned_data['password1']
             user = authenticate(username = username, password = password)
             login(request, user)
-            context = {'message':f'Usuario creado correctamente, bienvenido {username}'}
-            return render(request, 'home.html', context = context)
+            return redirect('home')
         else:
             errors = form.errors
             form = User_registration_form()
